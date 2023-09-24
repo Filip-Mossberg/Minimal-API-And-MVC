@@ -1,0 +1,36 @@
+﻿@model BookDTO
+
+<h1>Update Book</h1>
+<form asp-action="UpdateBook">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"><b>Title</b></label>
+        <input asp-for="Title" value=@Model.Title type="text" class="form-control">
+        <span asp-validation-for="Title" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label"><b>Author</b></label>
+        <input asp-for="Author" value=@Model.Author type="text" class="form-control">
+        <span asp-validation-for="Author" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"><b>Description</b></label>
+        <input asp-for="Description" value=@Model.Description type="text" class="form-control">
+        <span asp-validation-for="Description" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label"><b>Genre</b></label>
+        <input asp-for="Genre" value=@Model.Genre type="text" class="form-control">
+        <span asp-validation-for="Genre" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="IsAvalible" type="checkbox" class="form-check-input">
+        <label asp-for="IsAvalible" value=@Model.IsAvalible class="form-check-label"><b>IsAvalible</b></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

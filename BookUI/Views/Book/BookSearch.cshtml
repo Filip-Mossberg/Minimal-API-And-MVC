@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BookDTO>
+
+
+<h1>All Books</h1>
+
+<a asp-action="NewBook" class="btn btn-primary">New Book</a>
+<br />
+<Form asp-action="Search" method="post">
+    <Input name="content" class="form-control-sm mt-2" type="search" placeholder="Search" aria-label="Search">
+    <button type="submit" class="btn-xs border-2 btn-outline-success bg-info"><i class="fa-solid fa-magnifying-glass"></i></button>
+</Form>
+
+<hr />
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Author)</th>
+            <th>@Html.DisplayNameFor(model => model.Genre)</th>
+            <th>@Html.DisplayNameFor(model => model.IsAvalible)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(itemModel => item.Title)</td>
+                <td>@Html.DisplayFor(itemModel => item.Author)</td>
+                <td>@Html.DisplayFor(itemModel => item.Genre)</td>
+                <td>@Html.DisplayFor(itemModel => item.IsAvalible)</td>
+                <td>
+                    <a asp-action="BookInfo" asp-route-ID="@item.Id" class="btn btn-info">Info</a>
+                    <a asp-action="UpdateBook" asp-route-ID="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="DeleteBook" asp-route-ID="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

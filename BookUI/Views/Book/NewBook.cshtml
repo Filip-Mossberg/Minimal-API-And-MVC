@@ -1,0 +1,48 @@
+﻿@model BookCreateDTO
+
+<h1>Create New Book</h1>
+<form asp-action="NewBook">
+   @*  <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+  <div class="mb-3">
+        <label asp-for="Title" class="form-label"><b>Title</b></label>
+        <input asp-for="Title" type="text" class="form-control">
+        <span asp-validation-for="Title" class="text-blackalert-danger"></span>
+  </div>
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label"><b>Author</b></label>
+        <input asp-for="Author" type="text" class="form-control">
+        <span asp-validation-for="Author" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"><b>Description</b></label>
+        <input asp-for="Description" type="text" class="form-control">
+        <span asp-validation-for="Description" class="text-blackalert-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label"><b>Genre</b></label>
+        <input asp-for="Genre" type="text" class="form-control">
+        <span asp-validation-for="Genre" class="text-blackalert-danger"></span>
+    </div>
+@*     <div class="mb-3">
+        <label asp-for="Genre" class="form-label"><b>Genre</b></label>
+        <select asp-for="Genre" name="cars">
+            <option value="Horror">Horror</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Action">Action</option>
+            <option value="Food & drink">Food & Drink</option>
+        </select>
+    </div> *@
+  <div class="mb-3 form-check">
+    <input asp-for="IsAvalible" type="checkbox" class="form-check-input">
+        <label asp-for="IsAvalible" class="form-check-label"><b>IsAvalible</b></label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
